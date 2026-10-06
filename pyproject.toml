@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capm-beta-analyzer"
+version = "0.2.0"
+description = "Estimate CAPM beta, alpha and expected returns from daily price data."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+capm-beta = "capm_beta_analyzer.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["capm_beta_analyzer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
